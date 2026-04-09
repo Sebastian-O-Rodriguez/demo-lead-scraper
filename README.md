@@ -6,6 +6,8 @@ Scrapes search results and turns them into structured, AI-enriched leads.
 
 ## Demo
 
+![Demo GIF](./public/demo.gif)
+
 ![Demo Screenshot](./public/screenshot.png)
 
 ---
