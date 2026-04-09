@@ -16,6 +16,7 @@ export default function Home() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [searched, setSearched] = useState(false);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -28,6 +29,7 @@ export default function Home() {
 
     setLoading(true);
     setLeads([]);
+    setSearched(true);
 
     try {
       const res = await fetch("/api/leads", {
@@ -38,110 +40,130 @@ export default function Home() {
 
       if (!res.ok) {
         const body = (await res.json().catch(() => null)) as LeadErrorResponse | null;
-        setError(body?.error ?? "Something went wrong. Please try again.");
+        setError(body?.error ?? "Something went wrong. Try again.");
         return;
       }
 
       const data: LeadResponse = await res.json();
       setLeads(data.leads);
     } catch {
-      setError("Network error. Please check your connection and try again.");
+      setError("Something went wrong. Try again.");
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-10">
-          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">
+    <main className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-3xl mx-auto space-y-6">
+        {/* Title + Description */}
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">
             AI Lead Scraper + Enricher
           </h1>
-          <p className="mt-2 text-gray-500 text-base">
-            Search for leads and get AI-enriched summaries and categorizations.
+          <p className="mt-1 text-gray-500 text-sm">
+            Turn search queries into structured, AI-enriched leads in seconds.
           </p>
         </div>
 
-        {/* Search Form */}
-        <form onSubmit={handleSubmit} className="flex gap-3 mb-8">
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="e.g. AI startups in healthcare"
-            className="flex-1 rounded-lg border border-gray-300 px-4 py-2.5 text-gray-900 placeholder:text-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className="rounded-lg bg-blue-600 px-6 py-2.5 text-white font-medium shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-base"
-          >
-            {loading ? "Searching..." : "Search"}
-          </button>
-        </form>
+        {/* Input Section */}
+        <div className="border border-gray-200 rounded-xl p-4 bg-white shadow-sm">
+          <form onSubmit={handleSubmit} className="flex gap-3">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="e.g. cobblers in manhattan"
+              className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-blue-600 text-white rounded-md px-4 py-2 text-sm font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "Searching..." : "Search"}
+            </button>
+          </form>
+        </div>
 
         {/* Error State */}
         {error && (
-          <div className="mb-6 rounded-lg bg-red-50 border border-red-200 px-4 py-3">
-            <p className="text-red-700 text-sm">{error}</p>
-          </div>
+          <p className="text-red-600 text-sm">Something went wrong. Try again.</p>
         )}
 
         {/* Loading State */}
         {loading && (
-          <div className="text-center py-16">
-            <p className="text-gray-500 text-lg animate-pulse">
-              Searching and enriching leads...
-            </p>
+          <div className="flex items-center justify-center gap-2 py-12">
+            <svg
+              className="h-4 w-4 text-gray-400"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+              />
+            </svg>
+            <p className="text-gray-500 text-sm">Fetching + enriching leads...</p>
           </div>
         )}
 
         {/* Results Table */}
         {!loading && leads.length > 0 && (
-          <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-x-auto">
-            <table className="w-full divide-y divide-gray-200 table-fixed">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="w-[20%] px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+          <div className="border border-gray-200 rounded-xl bg-white shadow-sm overflow-hidden">
+            <table className="w-full table-fixed">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="w-[22%] px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
                     Name
                   </th>
-                  <th className="w-[20%] px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  <th className="w-[18%] px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
                     URL
                   </th>
-                  <th className="w-[45%] px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  <th className="w-[44%] px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
                     Summary
                   </th>
-                  <th className="w-[15%] px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  <th className="w-[16%] px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
                     Category
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody>
                 {leads.map((lead, i) => (
-                  <tr key={i} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-4 py-4 text-sm font-medium text-gray-900">
+                  <tr
+                    key={i}
+                    className={i % 2 === 1 ? "bg-gray-50" : "bg-white"}
+                  >
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">
                       <div className="truncate" title={lead.name}>
                         {lead.name}
                       </div>
                     </td>
-                    <td className="px-4 py-4 text-sm">
+                    <td className="px-4 py-3 text-sm">
                       <a
                         href={lead.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 hover:underline truncate block"
+                        className="text-blue-600 hover:underline truncate block"
                         title={lead.url}
                       >
                         {displayHost(lead.url)}
                       </a>
                     </td>
-                    <td className="px-4 py-4 text-sm text-gray-600">
-                      {lead.summary}
+                    <td className="px-4 py-3 text-sm text-gray-600">
+                      <div className="line-clamp-2">{lead.summary}</div>
                     </td>
-                    <td className="px-4 py-4 text-sm">
-                      <span className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700">
+                    <td className="px-4 py-3 text-sm">
+                      <span className="inline-block rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700">
                         {lead.category}
                       </span>
                     </td>
@@ -152,10 +174,14 @@ export default function Home() {
           </div>
         )}
 
-        {/* Empty State (after search completes with no results) */}
-        {!loading && !error && leads.length === 0 && query && (
-          <div className="text-center py-16">
-            <p className="text-gray-400 text-base">No leads found. Try a different query.</p>
+        {/* Empty State */}
+        {!loading && !error && leads.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-400 text-sm">
+              {searched
+                ? "No leads found. Try a different query."
+                : "No leads yet. Try a search above."}
+            </p>
           </div>
         )}
       </div>
