@@ -6,9 +6,9 @@ Scrapes search results and turns them into structured, AI-enriched leads.
 
 ## Demo
 
-![Demo GIF](./public/demo.gif)
+<img src="./public/demo.gif" alt="Demo GIF" width="800" />
 
-![Demo Screenshot](./public/screenshot.png)
+<img src="./public/screenshot.png" alt="Demo Screenshot" width="800" />
 
 ---
 
