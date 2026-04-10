@@ -6,23 +6,9 @@
 
 ## Demo
 
-<img src="./public/demo.gif" alt="Demo GIF" width="800" />
+![Demo GIF](./public/demo.gif)
 
-<img src="./public/screenshot.png" alt="Demo Screenshot" width="800" />
-
-Here's what the tool produces:
-
----
-
-## What You Get
-
-For any search, the tool returns a small set of relevant, enriched leads:
-
-- 5-10 businesses pulled from search
-- Short, readable summaries
-- Simple categories for quick scanning
-
-Everything is generated in one pass, with no manual cleanup needed.
+![Screenshot](./public/screenshot.png)
 
 ---
 
@@ -30,21 +16,29 @@ Everything is generated in one pass, with no manual cleanup needed.
 
 Finding leads manually is time-consuming — and cleaning that data takes even longer.
 
-This tool takes a simple search query and turns it into structured, usable lead data in one step.
+This tool takes a simple search query and turns it into **structured, usable lead data** in one step.
+
+---
+
+## What You Get
+
+For any search, the tool returns a small set of relevant, enriched leads:
+
+- **5-10 businesses** pulled from search
+- Short, readable summaries
+- Simple categories for quick scanning
+
+All generated in one step — **no manual cleanup required**.
 
 ---
 
 ## Example
 
-For example:
-
-**Search:** `miami dental clinics`
-
-**Result:** A list of local clinics, each with a short description and category — ready to review or use immediately.
+Search: `miami dental clinics`
 
 | Name | Summary | Category |
 |------|---------|----------|
-| 5 Best Dental Clinics in Miami | Guide listing top dental clinics in Miami | Dental Services |
+| 5 Best Dental Clinics in Miami | Guide listing top clinics | Dental Services |
 
 ---
 
@@ -55,8 +49,6 @@ Instead of jumping between tabs and cleaning data by hand, you get a quick, stru
 ---
 
 ## Run Locally
-
-If you want to try it yourself:
 
 ```bash
 git clone https://github.com/Sebastian-O-Rodriguez/demo-lead-scraper.git
