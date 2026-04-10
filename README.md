@@ -2,13 +2,15 @@
 
 **Enter a search query and get back clean, AI-enriched leads you can actually use.**
 
-This is a simple example of how AI can turn raw search data into something structured and usable.
+This demo shows how a simple search query can be turned into structured, usable lead data in seconds.
 
-It shows how repetitive research tasks can be automated in a lightweight, fast way.
+Instead of manually collecting and cleaning results, the process is automated end-to-end.
 
 ---
 
 ## Demo
+
+Search to structured leads in one flow:
 
 ![Demo GIF](./public/demo.gif)
 
@@ -24,15 +26,17 @@ This tool takes a simple search query and turns it into structured, usable lead 
 
 ## What You Get
 
-For any search, the tool returns a small set of relevant, enriched leads:
+For any search, the tool returns:
 
-- **5-10 businesses** pulled from search
-
+- **5-10 relevant businesses**
 - Short, readable summaries
-
 - Simple categories for quick scanning
 
-All generated in one step, with **no manual cleanup required**.
+All generated in one step, with no manual cleanup required.
+
+---
+
+## Interface
 
 ![Screenshot](./public/screenshot.png)
 
@@ -46,30 +50,43 @@ Search: `miami dental clinics`
 |------|---------|----------|
 | 5 Best Dental Clinics in Miami | Guide listing top clinics | Dental Services |
 
+Each result is cleaned and categorized, ready to review or use immediately.
+
 ---
 
 ## Why This Matters
 
-Instead of jumping between tabs and cleaning data by hand, you get a quick, structured view of potential leads, ready to act on.
+Instead of jumping between tabs and cleaning data by hand, you get a structured view of potential leads, ready to act on.
 
 ---
 
 ## Use Cases
 
-This pattern can be used for:
+This approach is useful for:
 
-- Lead generation for sales teams
-- Market research and competitor discovery
-- Pulling and summarizing business data
-- Automating repetitive data collection workflows
+- Building lead lists without manual research
+- Quickly scanning markets or competitors
+- Turning raw search data into structured datasets
+- Automating repetitive research workflows
 
-The same approach can be adapted to different data sources and workflows.
+It can be adapted to different industries and data sources.
+
+---
+
+## Working With This Pattern
+
+This demo is a simple version of a broader pattern.
+
+The same approach can be extended to:
+- Custom data sources
+- Internal tools and dashboards
+- Automated pipelines for research or ops
+
+If you have a workflow that involves repetitive data collection or cleanup, this can likely be automated.
 
 ---
 
 ## Run Locally (Optional)
-
-If you want to try it yourself:
 
 ```bash
 git clone https://github.com/Sebastian-O-Rodriguez/demo-lead-scraper.git
