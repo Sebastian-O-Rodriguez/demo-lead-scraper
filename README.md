@@ -1,6 +1,6 @@
 # AI Lead Scraper + Enricher
 
-**Turn a search query into usable, AI-cleaned leads in seconds.**
+**Enter a search query and get back clean, AI-enriched leads you can actually use.**
 
 ---
 
@@ -10,44 +10,37 @@
 
 <img src="./public/screenshot.png" alt="Demo Screenshot" width="800" />
 
+Here's what the tool produces:
+
 ---
 
 ## What You Get
 
-- 5-10 relevant leads from a simple search
-- Clean summaries of each business
-- Categorized results (no manual sorting)
+For any search, the tool returns a small set of relevant, enriched leads:
 
-All generated in one step.
+- 5-10 businesses pulled from search
+- Short, readable summaries
+- Simple categories for quick scanning
 
----
-
-## Problem
-
-Finding and cleaning leads manually takes time and breaks focus.
+Everything is generated in one pass, with no manual cleanup needed.
 
 ---
 
-## Solution
+## Overview
 
-This tool pulls search results and turns them into structured, usable lead data instantly.
+Finding leads manually is time-consuming — and cleaning that data takes even longer.
 
----
-
-## What It Does
-
-- Pulls results from search
-- Extracts key business info
-- Uses AI to summarize and categorize
-- Outputs ready-to-use leads
+This tool takes a simple search query and turns it into structured, usable lead data in one step.
 
 ---
 
 ## Example
 
-**Query:** `miami dental clinics`
+For example:
 
-**Output:** 5-8 enriched leads, each with a summary + category
+**Search:** `miami dental clinics`
+
+**Result:** A list of local clinics, each with a short description and category — ready to review or use immediately.
 
 | Name | Summary | Category |
 |------|---------|----------|
@@ -57,21 +50,13 @@ This tool pulls search results and turns them into structured, usable lead data 
 
 ## Why This Matters
 
-- Saves time on lead research
-- Removes manual cleanup
-- Turns raw search into usable data fast
+Instead of jumping between tabs and cleaning data by hand, you get a quick, structured view of potential leads — ready to act on.
 
 ---
 
-## Tech (for reference)
+## Run Locally
 
-- Next.js, React, TypeScript
-- Python (BeautifulSoup)
-- OpenRouter
-
----
-
-## How to Run
+If you want to try it yourself:
 
 ```bash
 git clone https://github.com/Sebastian-O-Rodriguez/demo-lead-scraper.git
@@ -88,6 +73,14 @@ LEAD_SCRAPER_OPENROUTER_KEY=your_key_here
 ```bash
 pnpm dev
 ```
+
+---
+
+## Tech Stack (Optional)
+
+- Next.js, React, TypeScript
+- Python (BeautifulSoup)
+- OpenRouter
 
 ---
 
