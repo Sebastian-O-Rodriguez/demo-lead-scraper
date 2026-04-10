@@ -1,6 +1,6 @@
 # AI Lead Scraper + Enricher
 
-Scrapes search results and turns them into structured, AI-enriched leads.
+**Turn a search query into usable, AI-cleaned leads in seconds.**
 
 ---
 
@@ -12,44 +12,58 @@ Scrapes search results and turns them into structured, AI-enriched leads.
 
 ---
 
+## What You Get
+
+- 5-10 relevant leads from a simple search
+- Clean summaries of each business
+- Categorized results (no manual sorting)
+
+All generated in one step.
+
+---
+
 ## Problem
 
-Manual lead research is slow and messy.
+Finding and cleaning leads manually takes time and breaks focus.
 
 ---
 
 ## Solution
 
-Automates scraping + enrichment into usable lead data.
+This tool pulls search results and turns them into structured, usable lead data instantly.
 
 ---
 
-## Features
+## What It Does
 
-- Scrape DuckDuckGo results
-- Extract names + URLs
-- Enrich with AI (summary + category)
-- Display in clean table
+- Pulls results from search
+- Extracts key business info
+- Uses AI to summarize and categorize
+- Outputs ready-to-use leads
 
 ---
 
 ## Example
 
-**Query:**
-`miami dental clinics`
+**Query:** `miami dental clinics`
 
-**Output:**
-5-8 enriched leads with summaries + categories
+**Output:** 5-8 enriched leads, each with a summary + category
 
-| Name | URL | Summary | Category |
-|------|-----|---------|----------|
-| 5 Best Dental Clinics in Miami | slicemiami.com | A guide listing the top five dental clinics in Miami | Dental Services |
-| Dental Blush | dentalblush.com | Trusted dental clinic in Miami offering cosmetic and general dentistry | Dental Clinic |
-| Ultra Smile DentalSpa | ultrasmilemiami.com | Offers comprehensive dental services including cosmetic and restorative treatments | Dental Clinic |
+| Name | Summary | Category |
+|------|---------|----------|
+| 5 Best Dental Clinics in Miami | Guide listing top dental clinics in Miami | Dental Services |
 
 ---
 
-## Stack
+## Why This Matters
+
+- Saves time on lead research
+- Removes manual cleanup
+- Turns raw search into usable data fast
+
+---
+
+## Tech (for reference)
 
 - Next.js, React, TypeScript
 - Python (BeautifulSoup)
@@ -67,21 +81,16 @@ python3 -m venv venv && source venv/bin/activate && pip install -r requirements.
 ```
 
 Create `.env.local`:
-
 ```
 LEAD_SCRAPER_OPENROUTER_KEY=your_key_here
 ```
-
-Run:
 
 ```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
-
 ---
 
-## Notes
+## Note
 
-Built as a fast demo for AI automation workflows.
+Built as a fast demo of AI-powered automation for real business workflows.
