@@ -1,6 +1,6 @@
 # Key Gotchas
 
-Situational knowledge for agents working in this codebase. Populate as you discover issues.
+Situational knowledge for agents working in this codebase.
 
 ## Scraper
 
@@ -15,12 +15,13 @@ Situational knowledge for agents working in this codebase. Populate as you disco
 
 ## Enrichment
 
-- Uses `openai/gpt-oss-20b:free` on OpenRouter. The original model (`meta-llama/llama-3.1-8b-instruct:free`) was removed.
-- Free tier rate limits aggressively. Enrichment runs sequentially with 500ms delay between calls + retry on 429 (2 retries, exponential backoff).
+- Uses paid `meta-llama/llama-3.1-8b-instruct` on OpenRouter (~$0.00003/query). Previous models tried: `llama-3.1-8b-instruct:free` (removed), `openai/gpt-oss-20b:free` (rate limited).
+- Enrichment runs in parallel via `Promise.all` — paid tier handles concurrent requests fine.
 - Model sometimes wraps JSON in markdown fences despite instructions. `enrich.ts` strips these.
-- Individual enrichment failures produce fallback leads ("Unable to enrich" / "Unknown"), never throw.
-- Shell env vars override `.env.local`. If `OPENROUTER_API_KEY` is set in your shell, Next.js will use that instead of `.env.local`.
+- Failed enrichments return `null` and are filtered out — users never see "Unable to enrich".
+- Env var is `LEAD_SCRAPER_OPENROUTER_KEY` (not `OPENROUTER_API_KEY`) to avoid collision with shell env vars.
 
 ## Frontend
 
 - If dev server returns 500 with `__webpack_modules__[moduleId] is not a function`, the `.next` cache is corrupted. Fix: `rm -rf .next && pnpm dev`.
+- Table uses `table-fixed` with explicit column widths (22/18/44/16%) to prevent summary/category from being pushed off-screen.

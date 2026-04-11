@@ -3,7 +3,7 @@
 Scrapes DuckDuckGo results and enriches them into structured leads with AI.
 
 **Owner:** Sebastian Rodriguez
-**Updated:** 2026-04-09
+**Updated:** 2026-04-10
 
 ---
 
@@ -41,11 +41,12 @@ This is a **sales demo** for AI automation capabilities. Not a production scrape
 
 | Path | Purpose | Status |
 |------|---------|--------|
-| `app/page.tsx` | UI shell — query input, submit, loading/error, results table | Placeholder |
-| `app/api/leads/route.ts` | API route — calls scraper, enriches, returns leads | Placeholder |
-| `lib/types.ts` | RawLead, Lead, request/response types | Placeholder |
-| `lib/enrich.ts` | OpenRouter request + output normalization | Placeholder |
-| `scripts/scrape.py` | Fetch DDG HTML, parse titles + URLs, print JSON | Placeholder |
+| `app/page.tsx` | UI — query input, submit, loading/error, results table | Complete |
+| `app/api/leads/route.ts` | API route — calls scraper, enriches, returns leads | Complete |
+| `lib/types.ts` | RawLead, Lead, request/response types | Complete |
+| `lib/enrich.ts` | OpenRouter enrichment with retry (parallel, paid model) | Complete |
+| `lib/mock-leads.ts` | Fallback mock data when scraper fails | Complete |
+| `scripts/scrape.py` | Fetch DDG HTML, parse titles + URLs, print JSON | Complete |
 
 ## Workspace Layout
 
@@ -66,7 +67,8 @@ ai-lead-enricher/              <- YOU ARE HERE (git root)
 │   └── api/leads/route.ts     <- Lead scrape + enrich endpoint
 ├── lib/
 │   ├── types.ts               <- Type definitions
-│   └── enrich.ts              <- OpenRouter enrichment
+│   ├── enrich.ts              <- OpenRouter enrichment
+│   └── mock-leads.ts          <- Fallback mock data
 ├── scripts/
 │   ├── scrape.py              <- DDG scraper
 │   ├── dispatch.sh            <- Agent dispatch
@@ -174,8 +176,9 @@ just status                   # Check results
 
 ```bash
 pnpm install                  # Install JS deps
+python3 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt  # Install Python deps
-cp .env.example .env.local    # Set up env vars
+cp .env.example .env.local    # Add LEAD_SCRAPER_OPENROUTER_KEY
 pnpm dev                      # Start Next.js dev server
 ```
 
@@ -233,9 +236,9 @@ All must pass before merge. Run `just gate` or individually:
 
 | Phase | Milestone | Status |
 |:-----:|-----------|--------|
-| 1 | Project Setup + Scaffold | In Progress |
-| 2 | Implementation | Pending |
-| 3 | Polish + Screenshot | Pending |
+| 1 | Project Setup + Scaffold | Complete |
+| 2 | Implementation | Complete |
+| 3 | Polish + Screenshot | Complete |
 
 ## Definition of Done
 
