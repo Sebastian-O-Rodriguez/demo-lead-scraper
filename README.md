@@ -1,8 +1,12 @@
 # AI Lead Scraper + Enricher
 
-**Enter a search query and get back clean, usable lead data in seconds.**
+**Enter a search query and get clean, usable lead data in seconds.**
+
+Built for teams doing manual prospect research.
 
 Turn unstructured search results into structured lead data in one step. No manual research. No cleanup.
+
+Stop collecting leads manually.
 
 ---
 
@@ -50,7 +54,15 @@ Skip the manual research loop. No tabs, no copy-pasting, no spreadsheet cleanup.
 
 ---
 
-> This generates leads. Teams then need a system to track and act on them.
+> This generates leads. The next step is tracking and acting on them.
+
+---
+
+## Built by Guava AI
+
+We build tools like this in 48 to 72 hours.
+
+If your team is doing manual lead research, we can automate it with a system like this.
 
 ---
 
