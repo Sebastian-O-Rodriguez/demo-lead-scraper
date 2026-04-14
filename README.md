@@ -1,26 +1,14 @@
 # AI Lead Scraper + Enricher
 
-**Enter a search query and get back clean, AI-enriched leads you can actually use.**
+**Enter a search query and get back clean, usable lead data in seconds.**
 
-This demo shows how a simple search query can be turned into structured, usable lead data in seconds.
-
-Instead of manually collecting and cleaning results, the process is automated end-to-end.
+Turn unstructured search results into structured lead data in one step. No manual research. No cleanup.
 
 ---
 
 ## Demo
 
-Search to structured leads in one flow:
-
 ![Demo GIF](./public/demo.gif)
-
----
-
-## Overview
-
-Finding leads manually is time-consuming, and cleaning that data takes even longer.
-
-This tool takes a simple search query and turns it into structured, usable lead data in one step.
 
 ---
 
@@ -29,16 +17,10 @@ This tool takes a simple search query and turns it into structured, usable lead 
 For any search, the tool returns:
 
 - **5-10 relevant businesses**
-- Short, readable summaries
-- Simple categories for quick scanning
+- Short summaries for each business
+- Categories to scan results quickly
 
-All generated in one step, with no manual cleanup required.
-
----
-
-## Interface
-
-![Screenshot](./public/screenshot.png)
+No manual cleanup required.
 
 ---
 
@@ -56,33 +38,19 @@ Each result is cleaned and categorized, ready to review or use immediately.
 
 ## Why This Matters
 
-Instead of jumping between tabs and cleaning data by hand, you get a structured view of potential leads, ready to act on.
+Skip the manual research loop. No tabs, no copy-pasting, no spreadsheet cleanup. One query returns structured leads you can act on.
 
 ---
 
 ## Use Cases
 
-This approach is useful for:
-
-- Building lead lists without manual research
-- Quickly scanning markets or competitors
+- Building lead lists from search results
+- Scanning new markets or competitors
 - Turning raw search data into structured datasets
-- Automating repetitive research workflows
-
-It can be adapted to different industries and data sources.
 
 ---
 
-## Working With This
-
-This demo covers search and enrichment. The same approach works with:
-- Different data sources (directories, databases, internal tools)
-- Different output formats (CRM-ready, spreadsheet, API)
-- Different industries and verticals
-
-If your team collects and cleans data manually, this replaces that step.
-
-This generates leads. Teams then need a system to track and act on them.
+> This generates leads. Teams then need a system to track and act on them.
 
 ---
 
@@ -111,9 +79,3 @@ pnpm dev
 - Next.js, React, TypeScript
 - Python (BeautifulSoup)
 - OpenRouter
-
----
-
-## Note
-
-This is a lightweight demo showing how search-to-lead automation works in practice.
