@@ -1,6 +1,6 @@
 # AI Lead Scraper and Enricher
 
-### Enter a search query → get structured lead data in seconds
+### Enter a search query and get structured lead data in seconds
 
 Built for teams doing manual prospect research.
 
