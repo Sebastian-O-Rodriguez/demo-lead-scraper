@@ -1,21 +1,23 @@
 # AI Lead Scraper + Enricher
 
-Scrapes DuckDuckGo results and enriches them into structured leads with AI.
+Turns unstructured search results into structured lead data with AI enrichment.
 
 **Owner:** Sebastian Rodriguez
-**Updated:** 2026-04-10
+**Updated:** 2026-04-14
 
 ---
 
 ## Product
 
-A small demo app that takes a search query, scrapes DuckDuckGo HTML results, extracts lead-like data, enriches each result with an AI model, and displays usable rows in a table.
+A small demo app that takes a search query, scrapes DuckDuckGo HTML results, enriches each result with AI, and displays structured lead data in a table.
 
-This is a **sales demo** for AI automation capabilities. Not a production scraper. Not a lead gen platform.
+This is a **sales demo** — part of a multi-demo package showing AI automation capabilities. Not a production scraper. Not a lead gen platform.
 
 **Core loop:** Query -> Scrape DDG -> Parse titles + URLs -> AI enrich -> Render table
 
-**Business value:** Turns raw search results into cleaner lead data faster than manual research.
+**Core transformation:** Unstructured search results → structured lead data
+
+**Business value:** Skip the manual research loop. One query returns structured leads you can act on.
 
 ## Stack
 
@@ -249,6 +251,7 @@ Done when:
 - Happy path works locally
 - Repo has screenshot/gif
 - README explains value in under 1 minute
+- Positioning aligns with demo package (Demo 1 = lead generation)
 
 ## Test Queries
 
