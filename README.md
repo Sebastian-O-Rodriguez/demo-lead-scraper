@@ -7,13 +7,6 @@ Built for teams doing manual prospect research.
 No manual research. No cleanup.
 
 ---
-
-## Demo
-
-![Demo GIF](./public/demo.gif)
-
----
-
 ## What You Get
 
 For any search, the tool returns:
@@ -23,6 +16,12 @@ For any search, the tool returns:
 - Categories to scan results quickly
 
 No manual cleanup required.
+
+---
+
+## Demo
+
+![Demo GIF](./public/demo.gif)
 
 ---
 
