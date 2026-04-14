@@ -1,10 +1,10 @@
 # AI Lead Scraper + Enricher
 
+### Turn search results into structured lead data in one step. No manual research. No cleanup.
+
 **Enter a search query and get clean, usable lead data in seconds.**
 
 Built for teams doing manual prospect research.
-
-Turn unstructured search results into structured lead data in one step. No manual research. No cleanup.
 
 Stop collecting leads manually.
 
