@@ -73,16 +73,16 @@ It can be adapted to different industries and data sources.
 
 ---
 
-## Working With This Pattern
+## Working With This
 
-This demo is a simple version of a broader pattern.
+This demo covers search and enrichment. The same approach works with:
+- Different data sources (directories, databases, internal tools)
+- Different output formats (CRM-ready, spreadsheet, API)
+- Different industries and verticals
 
-The same approach can be extended to:
-- Custom data sources
-- Internal tools and dashboards
-- Automated pipelines for research or ops
+If your team collects and cleans data manually, this replaces that step.
 
-If you have a workflow that involves repetitive data collection or cleanup, this can likely be automated.
+This generates leads. Teams then need a system to track and act on them.
 
 ---
 
@@ -116,4 +116,4 @@ pnpm dev
 
 ## Note
 
-This is a lightweight demo showing how AI-powered automation can be applied to real workflows.
+This is a lightweight demo showing how search-to-lead automation works in practice.
