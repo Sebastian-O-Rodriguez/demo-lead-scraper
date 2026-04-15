@@ -4,50 +4,60 @@
 
 Built for teams doing manual prospect research.
 
+Turn search results into structured lead data.
+
 No manual research. No cleanup.
 
 ---
+
 ## What You Get
 
-For any search, the tool returns:
-
-- **5-10 relevant businesses**
-- Short summaries for each business
-- Categories to scan results quickly
-
-No manual cleanup required.
+- Relevant businesses from any search  
+- Short summaries for each result  
+- Categories to scan results quickly  
+- Structured data ready to use  
 
 ---
 
+## Input
+
+Enter a search query.
+
+![Input](docs/assets/screenshot-input.png)
+
+## Output
+
+Get structured leads with summaries and categories.
+
+![Output](docs/assets/screenshot-output.png)
+
 ## Demo
 
-![Demo GIF](./public/demo.gif)
+Watch a search query turn into structured leads in seconds.
+
+![Demo](docs/assets/demo.gif)
 
 ---
 
 ## Example
 
-Search: `miami dental clinics`
+**Input**
+
+`miami dental clinics`
+
+**Output**
 
 | Name | Summary | Category |
 |------|---------|----------|
 | 5 Best Dental Clinics in Miami | Guide listing top clinics | Dental Services |
 
-Each result is cleaned and categorized, ready to review or use immediately.
+Each result is structured and ready to review or use.
 
 ---
 
 ## Why This Matters
 
-Skip the manual research loop. No tabs, no copy-pasting, no spreadsheet cleanup. One query returns structured leads you can act on.
-
----
-
-## Use Cases
-
-- Building lead lists from search results
-- Scanning new markets or competitors
-- Turning raw search data into structured datasets
+No manual research. No tab switching. No cleanup. Get leads you can act on immediately.
 
 ---
 
@@ -59,32 +69,4 @@ Skip the manual research loop. No tabs, no copy-pasting, no spreadsheet cleanup.
 
 We build tools like this in 48 to 72 hours.
 
-If your team is doing manual lead research, we can automate it with a system like this.
-
----
-
-## Run Locally (Optional)
-
-```bash
-git clone https://github.com/Sebastian-O-Rodriguez/demo-lead-scraper.git
-cd demo-lead-scraper
-pnpm install
-python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
-```
-
-Create `.env.local`:
-```
-LEAD_SCRAPER_OPENROUTER_KEY=your_key_here
-```
-
-```bash
-pnpm dev
-```
-
----
-
-## Tech Stack (Optional)
-
-- Next.js, React, TypeScript
-- Python (BeautifulSoup)
-- OpenRouter
+If your team is doing manual lead research, we can replace it with a system like this.
