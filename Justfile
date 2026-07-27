@@ -5,10 +5,6 @@
 # Variables
 # ---------------------------------------------------------------------------
 
-SPRINT_FILE  := ".gorp/plans/current-sprint.md"
-JOURNAL_DIR  := ".gorp/journal"
-DATE         := `date +%Y-%m-%d`
-
 # ---------------------------------------------------------------------------
 # Development
 # ---------------------------------------------------------------------------
@@ -21,29 +17,6 @@ dev:
 install:
     pnpm install
     pip install -r requirements.txt
-
-# ---------------------------------------------------------------------------
-# Sprint lifecycle
-# ---------------------------------------------------------------------------
-
-# Launch Robo in interactive mode to plan a sprint
-sprint-plan:
-    claude --agent robo
-
-# Mark a sprint as approved and tag it in git
-sprint-approve NAME:
-    sed -i '' 's/Status: Planning/Status: Approved/' {{SPRINT_FILE}}
-    git add {{SPRINT_FILE}}
-    git commit -m "sprint({{NAME}}): approved on {{DATE}}"
-    git tag "sprint/{{NAME}}/approved"
-
-# Run the hardened dispatch script for a sprint
-sprint-run NAME:
-    ./scripts/dispatch.sh {{NAME}}
-
-# Show current sprint status
-sprint-status:
-    grep -A 100 '| Task' {{SPRINT_FILE}} | grep '|'
 
 # ---------------------------------------------------------------------------
 # Quality gates
@@ -70,24 +43,9 @@ build: (gate "build")
 agent NAME:
     claude --agent {{NAME}}
 
-# Dispatch a single agent with a task prompt headlessly
-dispatch AGENT TASK:
-    claude --agent {{AGENT}} --print "{{TASK}}"
-
 # ---------------------------------------------------------------------------
 # Journal / monitoring
 # ---------------------------------------------------------------------------
-
-# Show the latest journal entry for an agent
-journal AGENT:
-    cat "$(ls -t {{JOURNAL_DIR}}/{{AGENT}}-*.md | head -1)"
-
-# Show current sprint status (alias)
-status: sprint-status
-
-# Show the dispatch log for a sprint
-log SPRINT:
-    cat {{JOURNAL_DIR}}/dispatch-{{SPRINT}}-*.log
 
 # ---------------------------------------------------------------------------
 # Scraper
@@ -101,9 +59,8 @@ scrape QUERY:
 # Utilities
 # ---------------------------------------------------------------------------
 
-# Remove dispatch JSON output files
+# Remove build artifacts
 clean:
-    rm -f {{JOURNAL_DIR}}/*.json
 
 # List all available targets
 help:

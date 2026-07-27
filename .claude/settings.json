@@ -21,15 +21,6 @@
             "command": "cmd=$(echo $TOOL_INPUT | jq -r '.command // empty'); if echo \"$cmd\" | grep -qE 'git\\s+(push\\s+--force|reset\\s+--hard|clean\\s+-f|checkout\\s+\\.|restore\\s+\\.)'; then echo 'BLOCKED: destructive git command requires CTO approval' >&2; exit 2; fi"
           }
         ]
-      },
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -z \"$GORP_AGENT\" ] || [ -z \"$GORP_SCOPE\" ]; then exit 0; fi; file=$(echo $TOOL_INPUT | jq -r '.file_path // .filePath // empty'); if [ -z \"$file\" ]; then exit 0; fi; if echo \"$file\" | grep -q '.gorp/journal/'; then exit 0; fi; if echo \"$file\" | grep -q '.gorp/plans/current-sprint.md'; then exit 0; fi; IFS=',' read -ra PATTERNS <<< \"$GORP_SCOPE\"; for pattern in \"${PATTERNS[@]}\"; do if echo \"$file\" | grep -q \"^$pattern\\|/$pattern\"; then exit 0; fi; done; echo \"BLOCKED: agent '$GORP_AGENT' cannot edit '$file' — outside declared scope ($GORP_SCOPE)\" >&2; exit 2"
-          }
-        ]
       }
     ]
   }
