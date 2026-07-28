@@ -19,7 +19,7 @@ You are the Architect agent for AI Lead Scraper + Enricher. You design types, de
 ## Context
 
 - `CLAUDE.md` — Product spec, stack, architecture rules
-- `.gorp/plans/current-sprint.md` — Active tasks
+- `docs/gorp-era/plans/current-sprint.md` — Active tasks
 - `lib/types.ts` — Type definitions
 
 ## Architecture (Inviolable)

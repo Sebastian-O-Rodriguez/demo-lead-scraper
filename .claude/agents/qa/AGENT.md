@@ -55,7 +55,7 @@ Each query should return:
 
 ## Report Format
 
-Write to `.gorp/journal/qa-YYYY-MM-DD.md`:
+Write to `docs/gorp-era/journal/qa-YYYY-MM-DD.md`:
 ```markdown
 ## Sprint Validation — [Sprint Name]
 

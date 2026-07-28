@@ -59,11 +59,6 @@ ai-lead-enricher/              <- YOU ARE HERE (git root)
 ├── .claude/                   <- Agent definitions + hooks
 │   ├── settings.json          <- Hooks (format-on-save, block destructive git)
 │   └── agents/                <- robo, architect, backend, frontend, qa
-├── .gorp/                     <- Plans, process docs, prompts, journal
-│   ├── plans/                 <- current-sprint.md, roadmap.md
-│   ├── process/               <- conventions, agent-protocol, approval-matrix
-│   ├── prompts/               <- dispatch.md.tmpl
-│   └── journal/               <- Per-agent daily logs
 ├── app/
 │   ├── page.tsx               <- Single page UI
 │   └── api/leads/route.ts     <- Lead scrape + enrich endpoint
@@ -73,7 +68,6 @@ ai-lead-enricher/              <- YOU ARE HERE (git root)
 │   └── mock-leads.ts          <- Fallback mock data
 ├── scripts/
 │   ├── scrape.py              <- DDG scraper
-│   ├── dispatch.sh            <- Agent dispatch
 │   └── quality-gate.sh        <- Quality checks
 ├── public/                    <- Static assets
 ├── .env.example               <- Environment template
@@ -119,12 +113,9 @@ No: auth, database, exports, pagination, background jobs, retries, crawl depth, 
 
 | Doc | Path | Purpose |
 |-----|------|---------|
-| Launch roadmap | `.gorp/plans/roadmap.md` | Canonical planning reference |
-| Conventions | `.gorp/process/conventions.md` | Git, commits, sprint format |
-| Agent protocol | `.gorp/process/agent-protocol.md` | Dispatch/report format for agents |
-| Approval matrix | `.gorp/process/approval-matrix.md` | What agents can auto-approve vs owner-required |
-| Current sprint | `.gorp/plans/current-sprint.md` | Active tasks |
-| Gotchas | `.gorp/process/gotchas.md` | Situational issues |
+| Launch roadmap | `docs/gorp-era/plans/roadmap.md` | Canonical planning reference |
+| Current sprint | `docs/gorp-era/plans/current-sprint.md` | Active tasks |
+| Gotchas | `docs/gorp-era/gotchas.md` | Situational issues |
 
 ---
 
@@ -140,32 +131,14 @@ This repo uses Claude Code multiagent orchestration. Agents live in `.claude/age
 | **frontend** | sonnet | Page UI, table, interactions | `app/page.tsx` |
 | **qa** | sonnet | Testing, validation | Matches code under review |
 
-### The Build Loop
+### Sprint workflow (retired)
 
-```
-PLAN -> APPROVE -> DISPATCH (waves) -> EXECUTE -> VERIFY -> LOG -> REPLAN
-```
-
-1. Owner sets direction in the roadmap
-2. `just sprint-plan` — Robo proposes a sprint breakdown
-3. `just sprint-approve <name>` — Owner approves
-4. `just sprint-run <name>` — Dispatches agents in dependency-ordered waves
-5. Agents work, write journal entries
-6. QA validates against acceptance criteria
-7. `just status` — View sprint results
-
-### Dispatch
-
-```bash
-just sprint-plan              # Interactive orchestrator
-just sprint-approve phase-1   # Approve a sprint
-just sprint-run phase-1       # Full wave-based dispatch
-just agent backend            # Single agent interactive
-just dispatch backend "task"  # Headless dispatch
-just status                   # Check results
-```
-
----
+The gorp-kit wave-dispatch loop (`just sprint-plan/approve/run`, dispatch.sh,
+journals) was removed in the 2026-07 GOS cleanup. Its plans and journals are
+preserved under `docs/gorp-era/`. Agents in `.claude/agents/` remain available
+as individual launchers (`claude --agent <name>`). Governed execution, if this
+project is onboarded, lives in `~/dev/gorp` (see its VISION.md / SYSTEM-MODEL.md
+/ CURRENT-STATE.md / ARCHITECTURAL-INVARIANTS.md).
 
 ## Prerequisites
 
@@ -204,9 +177,9 @@ All must pass before merge. Run `just gate` or individually:
 - **Author**: `--author="Gorp, Guava AI <gorp@guava.ai>"`
 - **Co-Author**: `Co-Authored-By: Gorp, Guava AI <gorp@guava.ai>`
 - **Branches**: `feat/`, `fix/`, `chore/`
-- **Sprint tracking**: `.gorp/plans/current-sprint.md`
-- **Roadmap**: `.gorp/plans/roadmap.md` (CTO-maintained, agents never modify)
-- **Journal**: `.gorp/journal/<agent>-<date>.md`
+- **Sprint tracking**: `docs/gorp-era/plans/current-sprint.md`
+- **Roadmap**: `docs/gorp-era/plans/roadmap.md` (CTO-maintained, agents never modify)
+- **Journal**: `docs/gorp-era/journal/<agent>-<date>.md`
 
 ## Approval Matrix
 
@@ -223,7 +196,7 @@ All must pass before merge. Run `just gate` or individually:
 - **Agents are proposal engines.** They generate diffs and reports under owner supervision.
 - **Every task gets an agent.** No cowboy coding. See conventions.
 - **Keep docs short.** If a topic exceeds ~100 lines, split into its own doc and link.
-- **Roadmap is canonical.** All planning references `.gorp/plans/roadmap.md`.
+- **Roadmap is canonical.** All planning references `docs/gorp-era/plans/roadmap.md`.
 
 ## Operating Principles
 

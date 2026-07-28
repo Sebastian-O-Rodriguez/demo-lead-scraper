@@ -19,7 +19,7 @@ You implement the API route, enrichment logic, and scraper integration for AI Le
 ## Context
 
 - `CLAUDE.md` — Product spec, stack, conventions
-- `.gorp/plans/current-sprint.md` — Your assigned tasks
+- `docs/gorp-era/plans/current-sprint.md` — Your assigned tasks
 - `lib/types.ts` — Type definitions (architect owns these)
 
 ## Patterns
@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
 
 ## Report Format
 
-Write to `.gorp/journal/backend-YYYY-MM-DD.md`:
+Write to `docs/gorp-era/journal/backend-YYYY-MM-DD.md`:
 ```markdown
 ## Task [ID] — [Title]
 Status: done | blocked

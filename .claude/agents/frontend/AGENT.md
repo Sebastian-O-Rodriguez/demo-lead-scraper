@@ -20,7 +20,7 @@ You build the single-page interface for AI Lead Scraper + Enricher — search in
 ## Context
 
 - `CLAUDE.md` — Product spec, UX rules
-- `.gorp/plans/current-sprint.md` — Your assigned tasks
+- `docs/gorp-era/plans/current-sprint.md` — Your assigned tasks
 - `lib/types.ts` — Type definitions
 - `app/api/leads/route.ts` — API contract (what to POST, what comes back)
 
@@ -70,7 +70,7 @@ page.tsx
 
 ## Report Format
 
-Write to `.gorp/journal/frontend-YYYY-MM-DD.md`:
+Write to `docs/gorp-era/journal/frontend-YYYY-MM-DD.md`:
 ```markdown
 ## Task [ID] — [Title]
 Status: done | blocked
